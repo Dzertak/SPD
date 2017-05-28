@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMain">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="646.0" layoutY="20.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@image/Макет.jpg" />
+         </image>
+      </ImageView>
+      <ImageView id="imageview" fx:id="ru" fitHeight="17.0" fitWidth="26.0" layoutX="105.0" layoutY="6.0" onMouseClicked="#changeLanguageRU" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/flag_ru.gif" />
+         </image>
+      </ImageView>
+      <ImageView id="imageview" fx:id="ua" fitHeight="17.0" fitWidth="26.0" layoutX="56.0" layoutY="6.0" onMouseClicked="#changeLanguageUA" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/flag_ua.gif" />
+         </image>
+      </ImageView>
+      <ImageView id="imageview" fx:id="uk" fitHeight="17.0" fitWidth="26.0" layoutX="7.0" layoutY="6.0" onMouseClicked="#changeLanguageUK" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/flag_en.gif" />
+         </image>
+      </ImageView>
+      <ImageView id="imageview" fx:id="help" fitHeight="23.0" fitWidth="26.0" layoutX="580.0" layoutY="3.0" onMouseClicked="#showHelpWindow" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/help-icon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="167.0" layoutY="3.0" text="Odessa national academy of food technologies" textFill="#b3bdda">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView id="imageview" fx:id="publication" fitHeight="211.0" fitWidth="147.0" layoutX="184.0" layoutY="181.0" onMouseClicked="#showPublication" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/journal.jpg" />
+         </image></ImageView>
+      <ImageView id="imageview1" fx:id="authors" fitHeight="211.0" fitWidth="147.0" layoutX="419.0" layoutY="180.0" onMouseClicked="#showAuthors" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/перо2.jpg" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

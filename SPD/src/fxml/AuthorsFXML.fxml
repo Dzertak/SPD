@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<AnchorPane fx:id="authorsWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerAuthors">
+   <children>
+      <ImageView fitHeight="85.0" fitWidth="118.0" layoutX="10.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0">
+         <image>
+            <Image url="@image/лого.JPG" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="leftAnchor" layoutX="14.0" layoutY="109.0" prefHeight="319.0" prefWidth="112.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="108.0">
+         <children>
+            <AnchorPane prefHeight="134.0" prefWidth="110.0">
+               <children>
+                  <Label layoutX="26.0" text="S" textFill="WHITE" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Times New Roman Bold" size="120.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="101.0" prefHeight="149.0" prefWidth="110.0">
+               <children>
+                  <Label layoutX="23.0" text="P" textFill="WHITE" AnchorPane.bottomAnchor="15.0">
+                     <font>
+                        <Font name="Times New Roman Bold" size="120.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="176.0" prefHeight="155.0" prefWidth="110.0">
+               <children>
+                  <Label layoutX="16.0" layoutY="21.0" text="D" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman Bold" size="120.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <ImageView id="imageview" fitHeight="17.0" fitWidth="26.0" layoutX="8.0" layoutY="6.0" onMouseClicked="#changeLanguageUK" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/flag_en.gif" />
+         </image>
+      </ImageView>
+      <ImageView id="imageview" fitHeight="17.0" fitWidth="26.0" layoutX="51.0" layoutY="6.0" onMouseClicked="#changeLanguageUA" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/flag_ua.gif" />
+         </image>
+      </ImageView>
+      <ImageView id="imageview" fitHeight="17.0" fitWidth="26.0" layoutX="96.0" layoutY="6.0" onMouseClicked="#changeLanguageRU" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/flag_ru.gif" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="topAnchor" layoutX="128.0" layoutY="26.0" prefHeight="233.0" prefWidth="472.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="26.0">
+         <children>
+            <Label layoutX="39.0" layoutY="2.0" prefHeight="51.0" prefWidth="163.0" text="Authors" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="46.0" />
+               </font>
+            </Label>
+            <TextField fx:id="edtSearchForView" layoutX="337.0" layoutY="24.0" prefHeight="25.0" prefWidth="174.0" promptText="Search..." AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="28.0" />
+            <ImageView id="imageview3" fx:id="btnSearchForView" fitHeight="32.0" fitWidth="26.0" layoutX="512.0" layoutY="23.0" onMouseClicked="#searchForView" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="1.0">
+               <image>
+                  <Image url="@image/search.png" />
+               </image>
+            </ImageView>
+            <TabPane fx:id="tabAuthor" layoutX="2.0" layoutY="51.0" prefHeight="200.0" prefWidth="472.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="51.0">
+              <tabs>
+                  <Tab closable="false" text="Information about Author">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TableView id="tblAuthorsForView" fx:id="tblAuthorsForView" editable="true" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <columns>
+                                    <TableColumn fx:id="id_authors2" prefWidth="75.0" text="id" visible="false" />
+                                    <TableColumn fx:id="id_identifiers2" prefWidth="75.0" text="Identifier" />
+                                    <TableColumn fx:id="full_name_en1" prefWidth="75.0" text="Full name" />
+                                    <TableColumn fx:id="full_name_ru1" prefWidth="75.0" text="ФИО" />
+                                    <TableColumn fx:id="full_name_ua1" prefWidth="75.0" text="ПІБ" />
+                                    <TableColumn fx:id="scientific_degree1" prefWidth="75.0" text="Scientific degree" />
+                                    <TableColumn fx:id="date_of_birth1" prefWidth="75.0" text="Date of birth" />
+                                    <TableColumn fx:id="email1" prefWidth="75.0" text="E-mail" />
+                                    <TableColumn fx:id="telephone1" prefWidth="75.0" text="Tel" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab closable="false" text="Publication, Employment History &amp; Identifiers">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane layoutX="22.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <tabs>
+                                    <Tab text="Identifier">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView id="tblAuthorsForView" fx:id="tblIdentifiersForView" editable="true" prefHeight="281.0" prefWidth="333.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <columns>
+                                                      <TableColumn fx:id="id_identifiers3" prefWidth="75.0" text="ID" />
+                                                      <TableColumn fx:id="scopusid1" prefWidth="75.0" text="ScopusID" />
+                                                      <TableColumn fx:id="orcid1" prefWidth="75.0" text="OrcID" />
+                                                      <TableColumn fx:id="researcherid1" prefWidth="75.0" text="ResearcherID" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                  <Tab text="Employment History">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView id="tblAuthorsForView" fx:id="tblEmploymentHistoryForView" editable="true" prefHeight="271.0" prefWidth="524.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <columns>
+                                                      <TableColumn fx:id="id_cathedra1" prefWidth="75.0" text="ID Cathedra" visible="false" />
+                                                      <TableColumn fx:id="id_scientific_institutions1" prefWidth="75.0" text="ID Scientific Institution" visible="false" />
+                                                      <TableColumn fx:id="id_authors3" prefWidth="75.0" text="ID Author" visible="false" />
+                                                      <TableColumn fx:id="id_employment_history1" prefWidth="75.0" text="ID" visible="false" />
+                                                      <TableColumn fx:id="name_authors1" prefWidth="75.0" text="Author" />
+                                                      <TableColumn fx:id="name_scientific_institutions1" prefWidth="75.0" text="Scientific Institution" />
+                                                      <TableColumn fx:id="name_cathedra1" prefWidth="75.0" text="Cathedra" />
+                                                      <TableColumn fx:id="beginning_of_period1" prefWidth="75.0" text="Beginning of period" />
+                                                      <TableColumn fx:id="ending_of_period1" prefWidth="75.0" text="Ending of period" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Publication">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab closable="false" text="More...">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane layoutY="-3.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-3.0">
+                                <tabs>
+                                  <Tab fx:id="tabAuthors" text="Authors">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tblAuthors" editable="true" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="25.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="id_authors" prefWidth="75.0" text="id" visible="false" />
+                                                    <TableColumn fx:id="id_identifiers" prefWidth="75.0" text="Identifier" />
+                                                      <TableColumn fx:id="full_name_en" prefWidth="75.0" text="Full name" />
+                                                      <TableColumn fx:id="full_name_ru" prefWidth="75.0" text="ФИО" />
+                                                      <TableColumn fx:id="full_name_ua" prefWidth="75.0" text="ПІБ" />
+                                                      <TableColumn fx:id="scientific_degree" prefWidth="75.0" text="Scientific degree" />
+                                                      <TableColumn fx:id="date_of_birth" prefWidth="75.0" text="Date of birth" />
+                                                      <TableColumn fx:id="email" prefWidth="75.0" text="E-mail" />
+                                                      <TableColumn fx:id="telephone" prefWidth="75.0" text="Tel" />
+                                                  </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                                <Button fx:id="btnDeleteAuthor" layoutX="201.0" mnemonicParsing="false" onAction="#delete" text="Button" />
+                                                <Button fx:id="btnExportExcelAuthors" layoutX="272.0" mnemonicParsing="false" onAction="#exportToExcelAuthors" text="Button" />
+                                                <TextField fx:id="edtSearchAuthor" layoutX="357.0" prefHeight="25.0" prefWidth="163.0" promptText="Search..." AnchorPane.rightAnchor="27.0" />
+                                                <ImageView id="imageview" fx:id="btnSearchAuthors" fitHeight="25.0" fitWidth="32.0" layoutX="509.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="1.0">
+                                                   <image>
+                                                      <Image url="@image/search.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <TitledPane fx:id="tltPaneAddAuthor" expanded="false" layoutX="1.0" prefHeight="289.0" prefWidth="200.0" text="Add Author">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2.0" prefWidth="189.0">
+                                                         <children>
+                                                            <ScrollPane layoutY="-2.0" prefHeight="271.0" prefWidth="194.0">
+                                                              <content>
+                                                                <AnchorPane fx:id="anchorAddAuthors" minHeight="0.0" minWidth="0.0" prefHeight="402.0" prefWidth="184.0">
+                                                                     <children>
+                                                                        <Label layoutX="58.0" layoutY="4.0" text="Input Date" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtIdentifiers" layoutX="5.0" layoutY="40.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="24.0" text="Identifier:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="170.0" layoutY="23.0" text="*" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="6.0" layoutY="66.0" text="Full name:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtFullNameEn" layoutX="5.0" layoutY="82.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="109.0" text="ФИО:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtFullNameRu" layoutX="5.0" layoutY="125.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="152.0" text="ПІБ:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtFullNameUa" layoutX="5.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="195.0" text="Scientific degree:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtScientificDegree" layoutX="5.0" layoutY="211.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="238.0" text="Date of birth (yy.mm.dd):" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtDateOfBirth" layoutX="5.0" layoutY="254.0" prefHeight="25.0" prefWidth="175.0" promptText="87.04.24" />
+                                                                        <Label layoutX="6.0" layoutY="281.0" text="E-mail:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtEmail" layoutX="5.0" layoutY="297.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="324.0" text="Telephone:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtTelephone" layoutX="5.0" layoutY="340.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Button fx:id="btnAddAuthor" layoutX="5.0" layoutY="372.0" mnemonicParsing="false" onAction="#addAuthors" prefHeight="25.0" prefWidth="175.0" text="Add Author" />
+                                                                        <Label layoutX="166.0" layoutY="239.0" text="*" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                              </content>
+                                                            </ScrollPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </TitledPane>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab fx:id="tabIdentifiers" text="Identifiers">
+                                       <content>
+                                          <AnchorPane prefHeight="285.0" prefWidth="535.0">
+                                             <children>
+                                                <Button fx:id="btnExportExcelIdentifiers" layoutX="272.0" mnemonicParsing="false" onAction="#exportToExcelIdentifiers" text="Button" />
+                                                <TableView fx:id="tblIdentifiers" editable="true" layoutX="201.0" layoutY="25.0" prefHeight="281.0" prefWidth="333.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="25.0">
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <columns>
+                                                      <TableColumn fx:id="id_identifiers1" prefWidth="75.0" text="ID" />
+                                                      <TableColumn fx:id="scopusid" prefWidth="75.0" text="ScopusID" />
+                                                      <TableColumn fx:id="orcid" prefWidth="75.0" text="OrcID" />
+                                                      <TableColumn fx:id="researcherid" prefWidth="75.0" text="ResearcherID" />
+                                                   </columns>
+                                                </TableView>
+                                                <TitledPane fx:id="tltPaneAddIdentifier" expanded="false" layoutX="1.0" prefHeight="17.0" prefWidth="200.0" text="Add Identifier">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="231.0" prefWidth="190.0">
+                                                         <children>
+                                                            <ScrollPane layoutY="-2.0" prefHeight="233.0" prefWidth="199.0">
+                                                               <content>
+                                                                  <AnchorPane fx:id="anchorAddAuthors1" minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="184.0">
+                                                                     <children>
+                                                                        <Label layoutX="58.0" layoutY="4.0" text="Input Date" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtIdentifiers1" layoutX="5.0" layoutY="40.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="24.0" text="Identifier:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="170.0" layoutY="23.0" text="*" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="6.0" layoutY="66.0" text="ScopusID:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtScousID" layoutX="5.0" layoutY="82.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="109.0" text="OrcID:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtOrcID" layoutX="5.0" layoutY="125.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="152.0" text="ResearcerID:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtResearcherID" layoutX="5.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Button fx:id="btnAddIdentifier" layoutX="5.0" layoutY="201.0" mnemonicParsing="false" onAction="#addIdentifiers" prefHeight="25.0" prefWidth="175.0" text="Add Identifier" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </TitledPane>
+                                                <Button fx:id="btnDeleteIdentifiers" layoutX="201.0" mnemonicParsing="false" onAction="#delete" text="Button" />
+                                                <TextField fx:id="edtSearchIdentifiers" layoutX="10.0" prefHeight="25.0" prefWidth="163.0" promptText="Search..." AnchorPane.rightAnchor="27.0" />
+                                                <ImageView id="imageview" fx:id="btnSearchIdentifiers" fitHeight="25.0" fitWidth="32.0" layoutX="174.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="1.0">
+                                                   <image>
+                                                      <Image url="@image/search.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                  </Tab>
+                                    <Tab fx:id="tabEmployment_History" text="Employment history">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TextField fx:id="edtSearchEmploymentHistory" layoutX="10.0" prefHeight="25.0" prefWidth="130.0" promptText="Search..." AnchorPane.rightAnchor="27.0" />
+                                                <Button fx:id="btnExportExcelEmploymentHistory" layoutX="272.0" mnemonicParsing="false" onAction="#exportToExcelEmploymentHistory" text="Button" />
+                                                <ImageView id="imageview" fx:id="btnSearchEmploymentHistory" fitHeight="25.0" fitWidth="32.0" layoutX="174.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="1.0">
+                                                   <image>
+                                                      <Image url="@image/search.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Button fx:id="btnDeleteEmploymentHiostory" layoutX="201.0" mnemonicParsing="false" onAction="#delete" text="Button" />
+                                                <Button fx:id="btnShowScientificInstitution" layoutX="342.0" mnemonicParsing="false" onAction="#showScientificInstitutions" prefHeight="25.0" />
+                                                <TableView fx:id="tblEmploymentHistory" editable="true" layoutX="10.0" layoutY="25.0" prefHeight="271.0" prefWidth="524.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="25.0">
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <columns>
+                                                      <TableColumn fx:id="id_cathedra" prefWidth="75.0" text="ID Cathedra" visible="false" />
+                                                      <TableColumn fx:id="id_scientific_institutions" prefWidth="75.0" text="ID Scientific Institution" visible="false" />
+                                                      <TableColumn fx:id="id_authors1" prefWidth="75.0" text="ID Author" visible="false" />
+                                                      <TableColumn fx:id="id_employment_history" prefWidth="75.0" text="ID" visible="false" />
+                                                      <TableColumn fx:id="name_authors" prefWidth="75.0" text="Author" />
+                                                      <TableColumn fx:id="name_scientific_institutions" prefWidth="75.0" text="Scientific Institution" />
+                                                      <TableColumn fx:id="name_cathedra" prefWidth="75.0" text="Cathedra" />
+                                                      <TableColumn fx:id="beginning_of_period" prefWidth="75.0" text="Beginning of period" />
+                                                      <TableColumn fx:id="ending_of_period" prefWidth="75.0" text="Ending of period" />
+                                                   </columns>
+                                                </TableView>
+                                                <TitledPane fx:id="tltPaneAddEmploymentHistory" expanded="false" layoutX="1.0" prefHeight="17.0" prefWidth="200.0" text="Add Employment History">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="269.0" prefWidth="182.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="269.0" prefWidth="198.0">
+                                                               <content>
+                                                                  <AnchorPane fx:id="anchorAddAuthors2" minHeight="0.0" minWidth="0.0" prefHeight="272.0" prefWidth="184.0">
+                                                                     <children>
+                                                                        <Label layoutX="58.0" layoutY="4.0" text="Input Date" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtIDAuthor" layoutX="5.0" layoutY="40.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="24.0" text="ID Author:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="170.0" layoutY="23.0" text="*" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="6.0" layoutY="66.0" text="ID Scientific institution:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtIDScientificInstitution" layoutX="5.0" layoutY="82.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="109.0" text="ID Cathedra:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtIDCathedra" layoutX="5.0" layoutY="125.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="152.0" text="Beginning of period:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtBeginningOfPeriod" layoutX="5.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Label layoutX="6.0" layoutY="195.0" text="Ending of period:" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <TextField fx:id="edtEndingOfPeriod" layoutX="5.0" layoutY="211.0" prefHeight="25.0" prefWidth="175.0" />
+                                                                        <Button fx:id="btnAddEmploymentHistory" layoutX="5.0" layoutY="242.0" mnemonicParsing="false" onAction="#addEmploymentHistory" prefHeight="25.0" prefWidth="175.0" text="Add Employment History" />
+                                                                        <Label layoutX="170.0" layoutY="65.0" text="*" textFill="#3484bf">
+                                                                           <font>
+                                                                              <Font name="Times New Roman Bold" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </TitledPane>
+                                             </children></AnchorPane>
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <ImageView id="imageview" fx:id="btnRefresh" fitHeight="17.0" fitWidth="12.0" layoutX="498.0" layoutY="25.0" onMouseClicked="#refresh" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="29.0">
+               <image>
+                  <Image url="@image/refresh3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="51.0" fitWidth="36.0" layoutX="3.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/peroWhite.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="187.0" layoutY="3.0" text="Odessa National Academy of Food Technologies" textFill="#3784bf">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView id="imageview" fx:id="help" fitHeight="23.0" fitWidth="26.0" layoutX="567.0" layoutY="2.0" onMouseClicked="#showHelpWindow" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="6.0">
+         <image>
+            <Image url="@image/help-icon.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
